@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Document</title>
+</head>
+<body>
+
+<div class="container">
+	<input type="checkbox" id="option-one"/>
+	<label for="option-one">
+		<span class="name">Option one</span>
+		<span class="icon"><i class="fa fa-check"></i></span>
+	</label>
+	<input type="checkbox" id="option-two"/>
+	<label for="option-two">
+		<span class="name">Option two</span>
+		<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+	</label>
+	<input type="checkbox" id="option-three"/>
+	<label for="option-three">
+		<span class="name">Option three</span>
+		<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+	</label>
+
+</div>
+
+<style>
+	*{margin:0; padding: 0; box-sizing: border-box;}
+	.container{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+	}
+	input{
+		display:none;
+	}
+	label{
+		position: relative;
+		width: 290px;
+		height: 50px;
+		background: #ededed;
+		margin: .1rem;
+		border-radius: 3px;
+		font-family: 'Poppins' , sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 1.3rem;
+		overflow: hidden;
+	}
+	label::after{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 320px;
+		height: 70px;
+		background: red;
+		clip-path: circle(70px at 260px 25px);
+		transition:  0.5s ease;
+	}
+	.name{
+		z-index:1;
+		transition: .4s;
+
+	}
+	.icon{
+		display:block;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		font-size: 16px;
+		color: green;
+		border:2px solid #dbdbdb;
+		z-index: 1;
+		display: grid;
+		place-items: center;
+	}
+	input:checked + label::after{
+		clip-path: circle(100%);
+	}
+	input:checked + label .name{
+		color:#fff;
+	}
+	input:checked + label .icon{
+		border-color: #fff;
+		color: #fff;
+	}
+	.fa{
+		position:absolute;
+		width:13px;
+		height:2px;
+		background:white;
+		transform:rotate(120deg) translateY(-3px);
+		visibility:hidden;
+	}
+	.fa::before{
+		content:"";
+		position:absolute;
+		right:0;
+		width:6px;
+		height:2px;
+		background:white;
+		transform:rotate(110deg) translate(50%) translateY(-2px);
+
+	}
+	input:checked + label > span > i{
+		visibility: visible;
+	}
+
+</style>
+
+</body>
+</html>

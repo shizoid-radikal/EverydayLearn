@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="10">
+	<title>Document</title>
+</head>
+<body>
+	<div class="text"><span>t.me/VmCode </span></div>		
+</body>
+<style>
+	body{
+		background-color:#f2f4fb;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		min-height: 100vh;
+	}
+	.text{
+		position:relative;
+		padding: 20px;
+		font-size:48px;
+		color:#000;
+		background-color:#f2f3fb;
+		font-weight: bold;
+		letter-spacing: 4px;
+	}
+	.text span{
+		color: #f2f3fb;
+		mix-blend-mode: difference;
+	}
+	.text::before{
+		content: "";
+		position:absolute;
+		top:0;
+		left:0;
+		width: 100px;
+		height: 100%;
+		border-radius: 50%;
+		background-color:#000;
+		animation: anim 3s linear infinite;
+	}
+	@keyframes anim {
+		0%{
+			left: 0;
+		}
+		50%{
+			left: 75%;
+		}
+		100%{
+			left: 0;
+		}
+	}
+</style>
+</html>

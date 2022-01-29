@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="40">
+	<title>Document</title>
+</head>
+<body>
+	<figure class="imagec">
+		<img src="image/imageJapan/4.jpg" alt="japan">
+		<figcaption>
+			<h2>Lorem Ipsum</h2>
+		</figcaption>
+	</figure>
+<style>
+
+	body{
+		background-color: #ff4d4f;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+		min-height: 100vh;
+	}
+
+	.imagec{
+		font-family: " Raleway" , Arial, sans-serif;
+		position: relative;
+		margin: 10px;
+		width: 100%;
+		max-width: 310px;
+		overflow: hidden;
+		text-align: center;
+		background: #ff4d4f;
+	}
+		img {
+			opacity: 0.5;
+			max-width: 100%;
+			position: relative;
+	}
+	.imagec * {
+		transition: all 0.35s ease-in-out;
+	}
+	figcaption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		right: 30px;
+		transform-origin: center 0;
+		transform: rotate(0deg) translateY(-50%) scale(1);
+	}
+	span{
+		font-weight: 800;
+	}
+	figcaption h2 {
+		top:50%;
+		margin: 0;
+		letter-spacing: -1px;
+		color: #ffffff;
+		text-transform: uppercase;
+		padding: 10px 0;
+		font-weight: 400;
+	}
+	figcaption::before,
+	figcaption::after {
+		background-color: rgba(255, 255, 255, 0.8);
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		content: "";
+		display: block;
+		transition: all 0.35s ease-in-out;
+	}
+	figcaption::before{
+		left: 0;
+		top: 0;
+	}
+	figcaption::after{
+		bottom: 0;
+		right: 0;
+	}
+	.imagec:hover img{
+		opacity: 1;
+	}
+	.imagec:hover figcaption{
+		transform: rotate(-45deg) translateY(-50%) scale(0.9);
+	}
+
+
+
+
+
+</style>
+</body>
+</html>

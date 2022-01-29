@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<meta http-equiv="refresh" content="10">
+</head>
+<body>
+	<label >
+		<input type="checkbox">
+		<div class="icon">
+			<div class="shadow"></div>
+			<div class="iconBx"><img src="image/iconSocialMedia/facebook.png" alt=""></div>
+		</div>
+	</label>
+
+
+	<style>
+		*{padding:0;margin:0;box-sizing:border-box;}
+		body{display:flex;justify-content: center;align-items:center;background: #666464;min-height: 100vh;}
+		label{
+			/*background:red;*/
+			width:120px;
+			height:60px;
+			display: flex;
+			justify-content: center;
+			align-items:center;
+			position:relative;
+			cursor: pointer;
+		}
+		label:before{
+			content:'';
+			position:absolute;
+			width:60%;
+			height:4px;
+			background:black;
+			border-radius:4px;
+		}
+		label input{
+			position:absolute;
+			appearance:none;
+		}
+		.icon{
+			position:absolute;
+			left:0;
+			width:60px;
+			height:100%;
+			/*background: #f00;*/
+			transition: 0.5s;
+		}
+		label input:checked ~ .icon{
+			left: 60px;
+		}
+		.icon:before{
+			content:'';
+			position:absolute;
+			top:0;
+			left:0;
+			width:10px;
+			height:100%;
+			background: linear-gradient(#fff,#fff,#e3e3e3);
+			filter: blur(1px);
+			z-index:2;
+		}
+		.icon:after{
+			content:'';
+			position:absolute;
+			top:0;
+			right:-1px;
+			width:10px;
+			height:100%;
+			background:#9d9d9d;
+			filter: blur(1px);
+		}
+		.shadow{
+			position:absolute;
+			top:30px;
+			left: -12px;
+			width: 84.85px;
+			height:300px;
+			background: linear-gradient(180deg,rgba(0,0,0,0.1),transparent,transparent);
+			transform-origin: top;
+			transform:rotate(315deg);
+			pointer-events:none;
+		}
+		.iconBx
+		{
+			position:relative;
+			width:100%;
+			height:100%;
+			background: linear-gradient(#dbdae1,#f3aaba);
+			box-shadow: 5px 5px 5px rgba(0,0,0,0.1),
+			15px 15px 15px rgba(0,0,0,0.1),
+			20px 20px 15px rgba(0,0,0,0.1),
+			30px 30px 15px rgba(0,0,0,0.1),
+			inset 1px 1px 2px #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		img{
+			width:30px;
+		}
+		label input:checked ~.icon .iconBx {
+			box-shadow: inset 0 0 10px red,inset 0 0 20px blue
+		}
+
+	</style>
+</body>
+</html>

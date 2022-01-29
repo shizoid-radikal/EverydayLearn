@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="10">
+	<title>Document</title>
+</head>
+<body>
+<div class="list">
+	<div class="user">
+		<div class="imgBx">
+			<img src="image/imageJapan/1.jpg" alt="">
+		</div>
+		<div class="details">
+			<h3>Mavrin Robinson </h3>
+			<p>Aerospace Engineer </p>
+		</div>
+	</div>
+	<div class="navigation">
+		<span><i><img src="image/iconSocialMedia/facebook.png" alt="#"></i></span>
+		<span><i><img src="image/iconSocialMedia/instagramm.png" alt="#"></i></span>
+		<span><i><img src="image/iconSocialMedia/telegram.png" alt="#"></i></span>
+	</div>
+</div>
+<script>
+	let navigation = document.querySelector('.navigation');
+	navigation.onclick = function(){
+		navigation.classList.toggle('active');
+	}
+</script>
+
+<style>
+	*{margin:0;padding:0;box-sizing:border-box;font-family: 'Poppins', sans-serif;}
+	body{
+		display:flex;
+		justify-content: center;
+		align-items:center;
+		min-height:100vh;
+		background:#222327;
+	}
+	.list{
+		display:flex;
+		gap:6px;
+	}
+	.list .user{
+		position:relative;
+		background:#fff;
+		height: 70px;
+		display:flex;
+		justify-content: center;
+		align-items:center;
+		border-radius:10px;
+		padding:10px;
+		gap:10px;
+	}
+	.list .user .imgBx{
+		position:relative;
+		width:50px;
+		height:50px;
+		overflow:hidden;
+		border-radius: 6px;
+	}
+	.list .user .imgBx img{
+		position: absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		height:100%;
+		object-fit: cover;
+	}
+	.list .user .details {
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+	}
+	.list .user .details h3{
+		font-weight: 600;
+		line-height: 1.1em ;
+	}
+	.list .user .details p{
+		font-weight: 500;
+		font-size:0.8em;
+		color: rgba(0,0,0,0.6);
+	}
+	.navigation{
+		position:ralative;
+		width:40px;
+		height:70px;
+		background:#fff;
+		border-radius:10px;
+		cursor:pointer;
+		transition: 0.5s;
+		display:flex;
+		justify-content: center;
+		align-items:center;
+	}
+	.navigation.active{
+		width:200px;
+	}
+	.navigation span{
+		position:absolute;
+		width:6px;
+		height: 6px;
+		background:#222327;
+		border-radius:50%;
+		transition:0.5s;
+		display: flex;
+		justify-content: center;
+		align-items:center;
+		border:1px solid black;
+	}
+	.navigation span:nth-child(1){
+		transform: translateY(-12px);
+
+	}
+	.navigation span:nth-child(3){
+		transform: translateY(12px);
+	}
+	.navigation.active span{
+		width:50px;
+		height:50px;
+	}
+	/*.navigation.active span:nth-child(1),
+	.navigation.active span:nth-child(3){
+		transform: translateY(0);
+	}*/
+	.navigation.active span:nth-child(1){
+		transform: translateY(0) translateX(-60px);
+
+	}
+	.navigation.active span:nth-child(3){
+		transform:translateY(0) translateX(60px);
+	}
+	.navigation img{
+		width:0px;
+		transition:.6s;
+	}
+
+	.navigation.active img{
+		width:30px;
+
+	}
+	.navigation.active span:hover{
+		background:#07DB52;
+	}
+
+</style>
+</body>
+</html>
