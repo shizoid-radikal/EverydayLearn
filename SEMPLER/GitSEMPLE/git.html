@@ -65,5 +65,31 @@
         <li>// укажет расстояние до Тега // tag_расстояние_hash</li>
         <li>git checkout HEAD~^2~2</li>
     </ul>
+
+    <h1> Немного из книги и документации</h1>
+    <ul>
+        <li>git log --pretty=oneline// выводит hash and commit </li>
+        <li>git restore --staged "<"file> // убрать из индекса файл</li>
+        <li>git diff --cached // или --staged// для просмотра проиндексированных файлов</li>
+        <li>git status -s // --short//</li>
+        <li>git config --list</li>
+        <li>можно создать .gitconfig file для окрашивания консоли Git</li>
+        <pre>
+            [color]
+            ui = auto
+            [color "status"]
+            added = green bold
+            changed = red bold 
+            untracked = yellow bold
+            [color "branch"]
+            current = yellow reverse
+            local = yellow
+            remote = green
+            [color "diff"]
+            meta = yelow bold
+            frag = magenta bold
+            old = red bold
+            new = green bold</pre>
+    </ul>
 </body>
 </html>
