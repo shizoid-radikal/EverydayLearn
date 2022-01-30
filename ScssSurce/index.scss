@@ -3,3 +3,110 @@
     margin:0;
     box-sizing: border-box;
 }
+$color1:#6428be;
+$color2:rgb(162, 203, 236);
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-height:100vh;
+    overflow: hidden;
+    text-align: center;
+    background-color: $color2;
+    padding-top: 20px;
+}
+.wrapper{
+    max-width: 1100px;
+}
+header{
+    width:100%;
+    margin: 20px auto;
+    display:flex;
+    justify-content: center;
+        .navigation{
+            width: 500px;
+            height:80px;
+            border-radius:20px;
+            position:relative;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color1;
+            box-shadow: 2px 2px 5px rgb(101, 92, 109),
+            //-1px -1px 5px rgba(0,0,0,0.3),
+            inset 1px 1px 5px rgba(0,0,0, 0.2),
+            inset 1px 1px 5px rgba(255,255,255, 0.3);
+            padding:20px;
+            border:solid 1px $color1;
+            ul{
+                flex:100%;
+                list-style: none;
+                display: flex;
+                justify-content:space-between;
+                align-items: center;
+            }
+
+        }
+
+li{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+    a{
+        color:$color2;
+        text-decoration: none;
+        transition:all 0.3s;
+        position:absolute;
+        transform:translateY(50px);
+    }
+    .icon{
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+        background-color: $color2 ;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
+.circle{
+    position:absolute;
+    background-color: rgb(166, 240, 166);
+    width:60px;
+    height:60px;
+    left:0;
+    top:-30px;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow:5px 5px 1px $color2,
+    -5px 5px 1px $color2,
+    0 5.5px 1px $color2;
+    transform:translateX(0px);
+    
+    &:before{
+        content:"";
+        position:absolute;
+        width:20px;
+        height:20px;
+        bottom:11px;
+        right:-23px;
+        border-top-left-radius:80%;
+        background-color: transparent;
+        box-shadow: -4px -5px $color2;
+        z-index:-1;
+    }
+    &:after{
+        content:"";
+        position:absolute;
+        width:20px;
+        height:20px;
+        bottom:11px;
+        left:-23px;
+        border-top-right-radius:80%;
+        background-color: transparent;
+        box-shadow: 4px -5px $color2;
+        z-index:-1;
+    }
+}
+
+}

@@ -4,15 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Roboto+Slab:wght@500;800&display=swap" rel="stylesheet">
+    <title>Главная</title>
 </head>
 <body>
     <h1>Мой учебный процесс</h1>
- <a href="GitSEMPLE/git.html">GIT</a><br>
- <a href="CssSEMPLE/css.html">CSS</a>
- <a href="SCSS/scss.html">SCSS</a>
+    <header>
+        <div class="wrapper">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="GitSEMPLE/git.html">GIT</a>
+                        <span class="icon" >1</span>
+                    </li>
+                    <li>
+                        <a href="CssSEMPLE/css.html">CSS</a>
+                        <span class="icon">2</span>
+                    </li>
+                    <li>
+                        <a href="Scss/scss.html">SCSS</a>
+                        <span class="icon">3</span>
+                    </li>
+                    <div class="circle" id="circle"></div>
+                </ul>
+            </div>
+        </div>
+    </header>
+
     <h2>Полезная ссылка</h2>
 <a href="https://github.com/ripienaar/free-for-dev#major-cloud-providers ">Список полезных инструментов</a>
 
+
+
+
+<script>
+    let icon = document.querySelectorAll('.icon');
+    function activeIcon(){
+        icon.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    icon.forEach((item)=> 
+    item.addEventListener('click', activeIcon));
+
+</script>
 </body>
 </html>
