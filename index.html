@@ -4,15 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    
+    <title>Главная</title>
 </head>
 <body>
     <h1>Мой учебный процесс</h1>
- <a href="SEMPLER/GitSEMPLE/git.html">GIT</a><br>
- <a href="SEMPLER/CssSEMPLE/css.html">CSS</a><br>
- <a href="SEMPLER/SCSS/scss.html">SCSS</a>
+    <header>
+        <div class="wrapper">
+            <div class="navigation">
+                <ul>
+                    <li class="navli">
+                        <a href="SEMPLER/GitSEMPLE/git.html">GIT</a>
+                        <span class="icon" ><img src="SEMPLER/image/icon/gitIcon.png" alt=""></span>
+                    </li>
+                    <li class="navli">
+                        <a href="SEMPLER/CssSEMPLE/css.html">CSS</a>
+                        <span class="icon"><img src="SEMPLER/image/icon/cssIcon.jpg" alt=""></span>
+                    </li>
+                    <li class="navli">
+                        <a href="SEMPLER/SCSS/scss.html">SCSS</a>
+                        <span class="icon"><img src="SEMPLER/image/icon/sassIcon.png" alt=""></span>
+                    </li>
+                    <div class="circle" id="circle"></div>
+                </ul>
+            </div>
+        </div>
+    </header>
+
     <h2>Полезная ссылка</h2>
 <a href="https://github.com/ripienaar/free-for-dev#major-cloud-providers ">Список полезных инструментов</a>
 
+
+
+
+<script>
+    let icon = document.querySelectorAll('.navli');
+    function activeIcon(){
+        icon.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    icon.forEach((item)=> 
+    item.addEventListener('click', activeIcon));
+
+</script>
 </body>
 </html>
