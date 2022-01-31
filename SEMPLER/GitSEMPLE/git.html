@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>GIT </h2>
+<ul>
+    <li>git init</li>
+    <li>git status</li>
+    <li>git add hello.txt</li>
+    <li>git add -A (чтобы добавить все из папки)</li>
+    <li>git commit -m "Initial commit."</li>
+    <li>git branch -M main</li>
+    <li>git remote add origin <strong>origin это наше произвольное название
+
+    </strong> https://......(Подключение к удаленному репозиторию)</li>
+    <li>git push -u origin main (переслать наш локальный коммит на сервер)</li>
+
+</ul>
+    <h1> Урок 2 </h1>
+<ul>
+    <li>$ git branch amazing_new_feature(Создание новой ветки)
+    </li>
+    <li>$ git branch (Переключение между ветками)</li>
+    <li>$ git checkout main</li>
+    <li>$ git merge amazing_new_feature</li>
+    <li>$ git branch -d awesome_new_feature <string>(удалить ветку)</string></li>
+</ul>
+    <h1>Полезная прога-игра в Git</h1>
+    <a href="https://learngitbranching.js.org/">git-game</a>
+    <h2>Знания из игры выше</h2>
+    <ul>
+        <li>git commit</li>
+        <li>git branch "<"name>"</li>
+        <li>git merge bugFix // мы в Main</li>
+        <li>git rebase main // установит копию под main c ' </li>
+        <li>git checkout C1 // (hash) сумма // HEAD</li>
+        <hr>
+        <li>Перемещение:
+            <li>git checkout main^ // на одну ветку выше</li>
+            <li>git checkout main^2 // выберет вторую (не основную) ветку</li>
+            <li>git checkout HEAD^</li>
+            <li>git checkout HEAD~3 // на 3 вверх относительно HEAD</li>
+            <li>git branch -f main HEAD~3 // main переместится на 3ю ветку от HEAD</li>
+            <li>//-f forced</li>
+            <hr>
+        </li>
+        <li>Отмена изменений
+            <li>git reset HEAD~1 // удаляет последующие,остается на HEAD~1</li>
+            <li>git revert HEAD // чтобы поделиться,отмененными изменениями</li>
+        </li>
+        <li>git cherry-pick C2 C4 // типо rebase - мы в main</li>
+        <hr>
+        <li>git gui </li>
+        <li>git gitk</li>
+        <hr>
+        <li>git rebase -i HEAD~3</li>
+        <li>git commit --amend //Изменение последнего коммита,забыл написать -m""</li>
+        <li>git tag V1 C1 // установит TAG V1 для  С1</li>
+        <li>git describe "<"ref"> // ref-это конкретный commit//git describe main//</li>
+        <li>// укажет расстояние до Тега // tag_расстояние_hash</li>
+        <li>git checkout HEAD~^2~2</li>
+    </ul>
+
+    <h1> Немного из книги и документации</h1>
+    <ul>
+        <li>git log --pretty=oneline// выводит hash and commit </li>
+        <li>git restore --staged "<"file> // убрать из индекса файл</li>
+        <li>git diff --cached // или --staged// для просмотра проиндексированных файлов</li>
+        <li>git status -s // --short//</li>
+        <li>git config --list</li>
+        <li>можно создать .gitconfig file для окрашивания консоли Git</li>
+        <pre>
+            [color]
+            ui = auto
+            [color "status"]
+            added = green bold
+            changed = red bold 
+            untracked = yellow bold
+            [color "branch"]
+            current = yellow reverse
+            local = yellow
+            remote = green
+            [color "diff"]
+            meta = yelow bold
+            frag = magenta bold
+            old = red bold
+            new = green bold</pre>
+    </ul>
+</body>
+</html>
