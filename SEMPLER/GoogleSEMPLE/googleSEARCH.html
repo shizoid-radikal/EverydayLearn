@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google search</title>
+</head>
+<body>
+    <h1>Регулярные выражения</h1>
+    <ul>
+        <li>Точное совпадение ковычки: <span>"Взлом"</span></li>
+        <li>OR- с большой буквы: <span>"Взлом" OR "wi-fi"</span></li>
+        <li>исключить слово "-" : <span>"Взлом" -wi-fi</span> </li>
+        <li> неизвестные буквы:   <span>**link</span></li>
+        <li> ОПЕРАТОРЫ:
+            <ul>
+                <li><span>site:habr.com "взлом"</span></li>
+                <li><span>intitle:</span> поиск по заголовку</li>
+                <li><span>inurl:</span> поиск по url</li>
+                <li><span>cache:habr.com</span> => покажет снимок крайней индексации</li>
+                <li><span>link:habr.com</span>  => поиск ссылающихся на этот адрес </li>
+                <li><span>alltitle:"взлом wi-fi"</span> => страницы со всей фразой </li>
+                <li><span>allintext: "взлом wi-fi"</span> => выведет страницу с искомой фразой </li>
+                <li><span>"Взлом" filetype: pdf</span></li>
+            </ul>
+        </li>
+        <li>ПРИМЕРЫ:
+            <ul>
+                <li><span>intitle: "index of/" Parent Directory</span></li>
+            <li><span>intitle: "index of/mail" site:...</span></li>
+            <li><span>intitle: "index of/admin" site:...</span></li>
+        </ul>
+        </li>
+    </ul>
+    <style>
+        body{
+            padding:10px 10px;margin:0;box-sizing: border-box;min-height: 100vh;text-align: center;
+            overflow:hidden;
+            background:black;
+            box-shadow:inset 5px 5px 15px rgba(255,255,255,0.5),
+            inset -5px -5px 5px rgba(255,255,255,0.7);
+
+
+        }
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+        }
+        ul,li{ color:white;}
+        ul{
+           list-style-type: decimal;
+           
+        }
+        li{
+            border: 1px solid rgba(255,255,255,0.4);
+            margin:5px auto;
+        }
+        span{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color:red;
+        }
+    </style>
+</body>
+</html>
