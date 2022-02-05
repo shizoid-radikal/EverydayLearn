@@ -188,24 +188,262 @@
             <div class="coment">styles.css УДАЛЯЕМ</div>
         </div>
         <div class="box">
-            <h2> в index.js добавить</h2>
-            <p>import './styles.css';</p>
+            <h2>Кэширование. webpack.config.js</h2>
+            <p >const MiniCssExtractPlugin=require("mini-css-extract-plugin");</p>
+            <p > const HtmlWebpackPlugin=require('html-webpack-plugin');</p>
+            <p>let mode='development'</p>
+            <p>if(process.env.NODE_ENV==='production'){</p>
+                <p>mode='production'</p>
+                <p>},</p>
+                <p>console.log(mode+'mode')</p>
+                <p>module.exports={</p>
+                    <p>mode:mode</p>
+                    <p>},</p>
+                    <p > plugins:[</p>
+                    <p > new HtmlWebpackPlugin({</p>
+                        <p > template: "./src/index.html"}),</p>
+                        <p >new MiniCssExtractPlugin(<span>{</span></p>
+                            <p class="add">filename:'[name].[contenthash].css'</p>
+                            <p> <span>}</span>),</p>
+                        <p>],</p>
+                        <p >module:{</p>
+                            <p >rules:[</p>
+                            <p >{</p>
+                                <p >test:/\.(sa|sc|c)ss$/,</p>
+                                <p >use:[</p>
+                                <div class="coment">style-loader будет напрямую встраивать дом стилей в секцию HEAD</div>
+                                
+                                <p >(mode==='development')?"style-loader":MiniCssExtractPlugin.loader,</p>
+                                <div class="coment">а MiniCssExtractPlugin.loader извлекает стили отдельным файлом в папку dist</div>
+                                <p >"css-loader",</p>
+                                <p >{</p>
+                                    <p >loader:</p>
+                                    <p >"postcss-loader",</p>
+                                    <p >options:{</p>
+                                        <p >postcssOptions:{</p>
+                                            <p >plugins:[</p>
+                                            <p >["postcss-preset-env",</p>
+                                            <p >{//options},</p>
+                                            <p >],</p>
+                                            <p >],</p>
+                                            <p >},},},</p>
+                                            <p >"sass-loader",</p>
+                                            <p><span>$npm run build</span></p>
+                                            <div class="coment">скомпилируем в production</div>
+                                            <div class="coment">В папке dist  появился main.js с хэшем ,но старая
+                                                версия main.js осталась, позже мы настроим очистку при компиляции
+                                            </div>
+                                            
+        </div>
+        
+        <div class="box">
+            <h2> Обработка Изображений.Фон</h2>
+            <div class="coment">в папку src ></div>
+            <div class="coment">>images <ul>
+                <li>webpack.png</li>
+                <div class="comment">зададим данное изображение в качестве фона
+                    одного из заголовков
+                </div>
+            </ul></div>
         </div>
         <div class="box">
-            <h2> в index.js добавить</h2>
-            <p>import './styles.css';</p>
+            <h2> webpack.config.js</h2>
+            <div class="coment">добавь</div>
+            <p>rules:[</p>
+            <p class="add">{ </p>
+                <p class="add">test:/\.(png|svg|jpg|gif)$/i,</p>
+                <p class="add">type: 'asset/resource',</p>
+                <p class="add">},</p>
+                <p>]},}</p>
+                <p><span>$npm run build</span></p>
+                <div class="coment">кэшированное изображение появилось в папке dist</div>
+                <div class="coment">отведем для изображения новое место</div>
         </div>
         <div class="box">
-            <h2> в index.js добавить</h2>
-            <p>import './styles.css';</p>
+            <h2> webpack.config.js</h2>
+            <p>mode:mode,</p>
+            <p class="add">output:{</p>
+                <p class="add">assetModuleFilename:"assets/[hash][ext][query]",</p>
+                <p class="add">},</p>
+                <p>plugins:[</p>
+                <p><span>$npm run build</span></p>
+                <div class="coment">в dist должна появиться папка assets</div>
         </div>
         <div class="box">
-            <h2> в index.js добавить</h2>
-            <p>import './styles.css';</p>
+            <h2> Обработка Изображений.Вставки</h2>
+            <div class="coment">=> images <ul>
+                <li class="add">angular.png</li>
+                <li>webpack.png</li>
+            </ul></div>
+            <div class="coment">устанавливаем html-loader</div>
+            <p><span>$npm install --save-dev html-loader</span></p>
+
         </div>
         <div class="box">
-            <h2> в index.js добавить</h2>
-            <p>import './styles.css';</p>
+            <h2> webpack.config.js</h2>
+            <p>rules:[</p>
+            <p class="add">{</p>
+                <p class="add">test: /\.html$/i,</p>
+                <p class="add">loader: "html-loader",</p>
+                <p class="add">},</p>
+        </div>
+        <div class="box">
+            <h2> index.html</h2>
+            <p>body</p>
+            <p>.container</p>
+            <p>h1 hello</p>
+            <p>h2 .container__subtitle>lorem</p>
+            <p>img src=images/angular.png</p>
+            <p><span>npm run start</span></p>
+        </div>
+        <div class="box">
+            <h2>Настроим папку dist для очистки хэша</h2>
+            <h2>webpack.config.js</h2>
+            <p>output:{</p>
+                <p>assetModuleFilename .....</p>
+                <p class="add">clean:true,</p>
+                <p>},</p>
+        </div>
+        <div class="box">
+            <h2> Шрифты</h2>
+            <div class="coment">>src <ul>
+                <li> class="add">>fonts <ul>
+                    <li class="add">prom.ttf</li>
+                </ul></li>
+                <li>>styles <ul>
+                    <li class="add">_fonts.scss =>
+                        <div class="coment">@font-face{font-family:"....";</div>
+                        <div class="coment">src:url("./fonts/prom.ttf) format ("truetype"),},</div>
+                    </li>
+                    <li class="add">_global.scss => html{f-fam: ....;}</li>
+                </ul></li>
+                <li class="add">index.css => @use 'fonts';</li>
+            </ul></div>
+        </div>
+        <div class="box">
+            <h2> webpack.config.js</h2>
+            <p>rules:[</p>
+            <p class="add">{</p>
+                <p class="add">test:/\.(woff|woff2|eot|ttf|otf)$/i,</p>
+                <p class="add">type:'asset/resource',</p>
+                <div class="coment">будет передан на обработку модулю resource</div>
+        </div>
+        <div class="box">
+            <h2> Установка Pug</h2>
+            <p><span>$npm install pug pug-loader --save-dev</span></p>
+            <div class="coment">в папке <strong>SRC</strong> создайте index.pug , a index.html можно удалить</div>
+            <div class="coment">>src => <ul>
+                <li class="add"> >pug => <ul>
+                    <li class="add">>libs => <ul>
+                        <li class="add">_libs.pug</li>
+                        <li class="add">_image.pug</li>
+                    </ul></li>
+                    <li class="add">_head.pug</li>
+                </ul></li>
+                <li class="add">index.pug</li>
+            </ul></div>
+        </div>
+        <div class="box">
+            <h2> webpack.config.js</h2>
+            <p> {</p>
+                <p class="add">test: /\.pug$/,</p>
+                <p class="add">loader: 'pug-loader',</p>
+                <p class="add">exclude: /(node-modules|bower_components)/,</p>
+                <p>}</p>
+                <div class="coment">И поменять расширение в</div>
+                <p>new HtmlWebpackPlugin({</p>
+                    <p class="add">template:"./src/index.pug"</p>
+        </div>
+        <div class="box">
+            <h2>Добавим babel.js</h2>
+            <p><span>$npm install babel-loader @babel/core @babel/preset-env --save-dev</span></p>
+
+        </div>
+        <div class="box">
+            <h2> Добавим Конфигурации в webpack.config.js</h2>
+            <p>{</p>
+                <p class="add">test:/\.m?js$/,</p>
+                <p class="add">exclude: /node_modules/,</p>
+                <p class="add">use:{</p>
+                    <p class="add">loader:'babel-loader',</p>
+                    <p class="add">options:{</p>
+                        <p class="add">presets:['@babel/preset-env']</p>
+                        <p>},</p>
+                        <p><span>$npm run dev</span></p>
+        </div>
+        <div class="box">
+            <h2> в package.json можно прописать необходимые версии для babel</h2>
+
+            <p>'scripts':{},</p>
+            <p class="add">"browserslist":[</p>
+            <p class="add">"last 2 versions",</p>
+            <p class="add">">1%",</p>
+            <p class="add">"IE 10"</p>
+            <p class="add">],</p>
+            <div class="coment">Версии не ниже 10ой</div>
+        </div>
+        <div class="box">
+            <h2> Добавить Contenthach k js файлам </h2>
+            <h2>webpack.config.js</h2>
+            <p>output:{</p>
+                <p class="add">filename:'[name].[contenthash].js',</p>
+                <p>....</p>
+                <p><span>$npm run build</span></p>
+                <p><span>$npm run start</span></p>
+        </div>
+        <div class="box">
+            <h2> Для нахождения в Devtool style.css</h2>
+            <h2>webpack.config.js</h2>
+            <p>module.exports={},</p>
+            <p class="add">devtool:'source-map',</p>
+            <p>plugins:[...</p>
+        </div>
+        <div class="box">
+            <h2> Установка JQuery</h2>
+            <p><span>$npm i jquery</span></p>
+            <div class="coment">в файле index.js подключаем под стилями</div>
+             <p class="add">import $ from "jquery";</p>
+             <div class="coment">для проверки добавь в index.pug .block</div>
+             <div class="coment">a в index.js следующую строку</div>
+             <p class="add">$('.block').html('hello jquery');</p>
+        </div>
+        <div class="box">
+            <h2> @popper.js</h2>
+            <p><span>$npm install @popperjs/core</span></p>
+            <div class="coment">помогает размещать всплывающие окна над элементами bootstrap</div>
+            <div class="coment">импортируем bootstrap index.js </div>
+            <p class="add">import 'bootstrap';</p>
+            <div class="coment">импортируем bootstrap index.scss </div>
+            <p class="add">@import "~bootstrap/scss/bootstrap";</p>
+
+        </div>
+        <div class="box">
+            <h2> entry</h2>
+            <h2>webpack.config.js</h2>
+            <div class="coment">создадим в index.pug =>.user</div>
+            <div class="coment">рядом с index.js добавим user.js</div>
+            <p class="add">=> import $ from "jquery";</p>
+            <p class="add">$('.user').html('jquery')</p>
+
+            <p></p>
+            <div class="coment">В конфигурации добавим:</div>
+            <p>mode:mode,</p>
+        <p class="add">entry:{</p>
+            <p class="add">scripts:'./src/index.js',</p>
+            <p class="add">user:'./src/user.js',</p>
+            <p class="add">},</p>
+            <p><span>$npm run build</span></p>
+        </div>
+        <div class="box">
+            <h2>Optimization</h2>
+            <h2>webpack.config.js</h2>
+            <div class="coment">необходимо для того,чтобы код с библиотек не копировался, а был создан отдельный файл</div>
+            <p>entry{},output{},devtool:...,</p>
+            <p class="add">Optimization:{</p>
+                <p class="add">splitChunks:{</p>
+                    <p class="add">chunks:'all',</p>
+                    <p class="add">},},</p>
+                    <div class="coment">этот плагин по умолчанию установлен с webpack</div>
         </div>
     </div>
 
@@ -217,7 +455,9 @@
         }
         ul{
             padding:0 30px;
+            
         }
+        li{font-family:monospace;}
         span{
             color:rgb(179, 52, 52);
             font-weight: 700;
