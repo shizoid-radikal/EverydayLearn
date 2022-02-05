@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Webpack development</h1>
+        <div class="box">
+            <h2>Подготовка</h2>
+            <p><span>$npm init -y</span></p>
+            <p>создаем папку с файлом :  <strong>src > index.js</strong></p>
+            <p><span>$npm install webpack webpack-cli --save-dev</span></p>
+            <p><span>$npm install --save-dev cross-env</span></p>
+            <p>в основном Webpack использует 4 скрипта: <strong>start,match,dev,build</strong></p>
+        </div>
+        <div class="box">
+            <h2>package.json</h2>
+            <p>'scripts':{</p>
+                <div class="coment">//для поднятия сервера</div>
+                <p>'start': "set NODE_ENV=development&&webpack serve --open",</p>
+                <p>'match': "webpack --watch"</p>
+                <p>'dev':"set NODE_ENV=development&&webpack"</p>
+                <p>'build':"cross-env NODE_ENV=production webpack"</p>
+                <p>},</p>
+                <div class="coment">В файле package.json существует системная переменная NODE_ENV,
+                    которая относится к Node.js(принимает 2 значения: development по умолчанию и production).
+                    И есть mode, которая существует в файле конфигурации webpack, 
+                    она упирается на сист переменную Node.js
+                </div>
+        </div>
+        <div class="box">
+            <h2>webpack.config.js</h2>
+            <p>let mode='development'</p>
+            <p>if(process.env.NODE_ENV==='production'){</p>
+                <p>mode='production'</p>
+                <p>},</p>
+                <p>console.log(mode+'mode')</p>
+                <p>module.exports={</p>
+                    <p>mode:mode</p>
+                    <p>},</p>
+                    <p><span>$npm run dev</span></p>
+                    <p><span>$npm run build</span></p>
+
+        </div>
+        <div class="box">
+            <h2>Создадим index.html</h2>
+            <div class="coment">>dist</div>
+            <div class="coment">>node_modules</div>
+            <div class="coment">>src >
+                <ul>
+                    <li>index.html => .container>h1>hello</li>
+                    <li>index.js  => let count =(a,b)=>a+b;console.log(count(2,3));</li>
+                </ul>
+            </div>
+            <div class="coment">package.json</div>
+            <div class="coment">webpack.config.js</div>
+            <p><span>$npm install --save-dev html-webpack-plugin</span></p>
+        </div>
+        <div class="box">
+            <h2>webpack.config.js</h2>
+            <p class="add"> const HtmlWebpackPlugin=require('html-webpack-plugin');</p>
+            <p>let mode='development'</p>
+            <p>if(process.env.NODE_ENV==='production'){</p>
+                <p>mode='production'</p>
+                <p>},</p>
+                <p>console.log(mode+'mode')</p>
+                <p>module.exports={</p>
+                    <p>mode:mode</p>
+                    <p>},</p>
+                    <p class="add"> plugins:[</p>
+                    <p class="add"> new HtmlWebpackPlugin({</p>
+                        <p class="add"> template: "./src/index.html"})],</p>
+                        <p><span>$npm run dev</span></p>
+        </div>
+        <div class="box">
+            <h2>Добавим  styles.css</h2>
+            <p>В папку src => styles.css =>h1{color:darkcyan;}</p>
+            <p><span>$npm install style-loader css-loader postcss-loader postcss</span></p>
+            <p><span>postcss-preset-env sass-loader sass mini-css-extract-plugin</span></p>
+            <p><span>--save-dev</span></p>
+        </div>
+        <div class="box">
+            <h2>webpack.config.js</h2>
+            <p class="add">const MiniCssExtractPlugin=require("mini-css-extract-plugin");</p>
+            <p > const HtmlWebpackPlugin=require('html-webpack-plugin');</p>
+            <p>let mode='development'</p>
+            <p>if(process.env.NODE_ENV==='production'){</p>
+                <p>mode='production'</p>
+                <p>},</p>
+                <p>console.log(mode+'mode')</p>
+                <p>module.exports={</p>
+                    <p>mode:mode</p>
+                    <p>},</p>
+                    <p > plugins:[</p>
+                    <p > new HtmlWebpackPlugin({</p>
+                        <p > template: "./src/index.html"}),</p>
+                        <p class="add">new MiniCssExtractPlugin(),</p>
+                        <p>],</p>
+                        <p class="add">module:{</p>
+                            <p class="add">rules:[</p>
+                            <p class="add">{</p>
+                                <p class="add">test:/\.(sa|sc|c)ss$/,</p>
+                                <p class="add">use:[</p>
+                                <p class="add">MiniCssExtractPlugin.loader,</p>
+                                <p class="add">"css-loader",</p>
+                                <p class="add">{</p>
+                                    <p class="add">loader:</p>
+                                    <p class="add">"postcss-loader",</p>
+                                    <p class="add">options:{</p>
+                                        <p class="add">postcssOptions:{</p>
+                                            <p class="add">plugins:[</p>
+                                            <p class="add">["postcss-preset-env",</p>
+                                            <p class="add">{//options},</p>
+                                            <p class="add">],</p>
+                                            <p class="add">],</p>
+                                            <p class="add">},},},</p>
+                                            <p class="add">"sass-loader",</p>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+            <p><span>$npm run dev</span></p>
+        </div>
+        <div class="box">
+            <h2>добавим условия в webpack.config.js</h2>
+            <p >const MiniCssExtractPlugin=require("mini-css-extract-plugin");</p>
+            <p > const HtmlWebpackPlugin=require('html-webpack-plugin');</p>
+            <p>let mode='development'</p>
+            <p>if(process.env.NODE_ENV==='production'){</p>
+                <p>mode='production'</p>
+                <p>},</p>
+                <p>console.log(mode+'mode')</p>
+                <p>module.exports={</p>
+                    <p>mode:mode</p>
+                    <p>},</p>
+                    <p > plugins:[</p>
+                    <p > new HtmlWebpackPlugin({</p>
+                        <p > template: "./src/index.html"}),</p>
+                        <p >new MiniCssExtractPlugin(),</p>
+                        <p>],</p>
+                        <p >module:{</p>
+                            <p >rules:[</p>
+                            <p >{</p>
+                                <p >test:/\.(sa|sc|c)ss$/,</p>
+                                <p >use:[</p>
+                                <div class="coment">style-loader будет напрямую встраивать дом стилей в секцию HEAD</div>
+                                
+                                <p class="add">(mode==='development')?"style-loader":MiniCssExtractPlugin.loader,</p>
+                                <div class="coment">а MiniCssExtractPlugin.loader извлекает стили отдельным файлом в папку dist</div>
+                                <p >"css-loader",</p>
+                                <p >{</p>
+                                    <p >loader:</p>
+                                    <p >"postcss-loader",</p>
+                                    <p >options:{</p>
+                                        <p >postcssOptions:{</p>
+                                            <p >plugins:[</p>
+                                            <p >["postcss-preset-env",</p>
+                                            <p >{//options},</p>
+                                            <p >],</p>
+                                            <p >],</p>
+                                            <p >},},},</p>
+                                            <p >"sass-loader",</p>
+                                            <p><span>npm start</span></p>
+        </div>
+        <div class="box">
+            <h2>пополняем директорию</h2>
+            <p>в src =></p>
+            <p class="add">>styles
+                <ul>
+                    <li class="add">index.scss => @use 'global'</li>
+                    <li class="add">_global.scss => <ul>
+                        <li class="add">$primatyColor:darkcyani;</li>
+                        <li class="add">$secondaryColor:darklategray;</li>
+                        <li class="add">h1{color:$primaryColor;}</li>
+                        <li class="add">.container{&__subtitle{color:$secondaryColor};</li>
+                    </ul></li>
+                </ul>
+            </p>
+
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles/index.scss'</p>
+            <div class="coment">styles.css УДАЛЯЕМ</div>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+        </div>
+        <div class="box">
+            <h2> в index.js добавить</h2>
+            <p>import './styles.css';</p>
+        </div>
+    </div>
+
+    <style>
+        body{
+            margin:0;padding:0;box-sizing: border-box;min-height:100vh;
+           overflow-x: hidden;
+            background:linear-gradient(45deg,rgb(155,200,150),rgb(5,150,100),rgb(243, 103, 103));
+        }
+        ul{
+            padding:0 30px;
+        }
+        span{
+            color:rgb(179, 52, 52);
+            font-weight: 700;
+        }
+        .coment{
+            font-family: cursive;
+        }
+        .container{
+            max-width:1100px;
+            margin:0 auto;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        }
+        p{
+            line-height:15px;
+            font-size:20px;
+            font-family:monospace;
+            color:rgb(4, 19, 105);
+            letter-spacing: 0.2px;
+        }
+        .add{
+            color:rgb(165, 4, 130);
+        }
+        strong{
+            font-size:22px;
+        }
+        h1{
+            font-family:fantasy;
+            background:linear-gradient(225deg,rgb(155,200,150),rgb(5,150,100),rgb(243, 103, 103));
+            background-clip: text;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 2px 2px red);
+            color:transparent;
+
+        }
+        .box{
+            margin:5px 0;
+            width:90%;
+            border:1px solid rgba(6, 88, 54,0.5);
+            box-shadow:1px 1px 5px rgb(4, 126, 83),
+            -1px -1px 5px rgb(216, 91, 91),
+            inset 1px 1px 3px rgba(4, 102, 68,0.7),
+            inset -1px -1px 3px rgb(184, 82, 82,0.4);
+            padding:0 10px;
+        }
+        .box h2{
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            color:rgb(6, 46, 32);
+        }
+        @media (max-width:700px){
+            p{
+                font-size:16px;
+            }
+            strong{
+                font-size:18px;
+            }
+        }
+
+    </style>
+</body>
+</html>
