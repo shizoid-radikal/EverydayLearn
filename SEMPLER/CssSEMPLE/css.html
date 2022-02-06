@@ -7,22 +7,29 @@
     <title>CssSEMPLE</title>
 </head>
 <body>
-    <h1>CSS Semple</h1><br><br>
-
-<h2>BoxSelf</h2>
+    <div class="box">
+        <h1>CSS Semple</h1><br><br>
+    </div>
+<div class="box">
 <ul>
+    <h2>BoxSelf</h2>
     <li><a href="BoxSelf/figcaptionIMAGEopacity.html">figcaptionIMAGEopacity</a></li>
     <li><a href="BoxSelf/imgHoverEffect.html">imgHoverEffect</a></li>
     <li><a href="BoxSelf/PoligonImageHover.html">PoligonImageHover</a></li>
 </ul>
-<h2>Burger</h2>
+</div>
+<div class="box">
+    
+    <ul>
+        <h2>Burger</h2>
+        <li><a href="Burger/burger.html">burger</a></li>
+        <li><a href="Burger/menu.html">menu</a></li>
+        <li><a href="Burger/navbarCircle.html">navbarCircle</a></li>
+    </ul></div>
+<div class="box">
+    
 <ul>
-    <li><a href="Burger/burger.html">burger</a></li>
-    <li><a href="Burger/menu.html">menu</a></li>
-    <li><a href="Burger/navbarCircle.html">navbarCircle</a></li>
-</ul>
-<h2>Button </h2>
-<ul>
+    <h2>Button </h2>
     <li><a href="Button/tunel.html">tunel</a></li>
     <li><a href="Button/circle.html">circle</a></li>
     <li><a href="Button/animationScale.html">animationScale</a></li>
@@ -33,43 +40,112 @@
     <li><a href="Button/buble.html">buble</a></li>
     <li><a href="Button/focus.html">focus</a></li>
 </ul>
-<h2>Checkbox</h2>
+</div>
+<div class="box">
+    
 <ul>
+    <h2>Checkbox</h2>
     <li><a href="Checkbox/checkbox.html">checkbox</a></li>
 </ul>
-<h2>Figure </h2>
+</div>
+<div class="box">
+    
 <ul>
+    <h2>Figure </h2>
     <li><a href="Figure/Cube.html">Cube</a></li>
     <li><a href="Figure/Glasmorphizm.html">Glasmorphizm</a></li>
     <li><a href="Figure/JSclock.html">JSclock</a></li>
     <li><a href="Figure/Stairs.html">Stairs</a></li>
     <li><a href="Figure/wawesAnimationForm.html">wawesAnimationForm</a></li>
 </ul>
-<h2>Form </h2>
+</div>
+<div class="box">
+    
 <ul>
+    <h2>Form </h2>
     <li><a href="Form/inputVisible.html">inputVisible</a></li>
 </ul>
-<h2>Loading </h2>
+</div>
+<div class="box">
+    
 <ul>
+    <h2>Loading </h2>
     <li><a href="Loading/loading.html">loading</a></li>
     <li><a href="Loading/loadingEase.html">loadingEase</a></li>
 </ul>
-<h2>Radio</h2>
+</div>
+<div class="box">
+   
 <ul>
+    <h2>Radio</h2>
     <li><a href="Radio/RadioButton.html">RadioButton</a></li>
 </ul>
-<h2>Sidebar</h2>
+</div>
+<div class="box">
 <ul>
+    <h2>Sidebar</h2>
     <li><a href="Sidebar/DodelatSidebarPart1.html">DodelatSidebarPart1</a></li>
 </ul>
-<h2>Slider</h2>
+</div>
+<div class="box">
 <ul>
+    <h2>Slider</h2>
     <li><a href="Slider/SliderCss.html">Slider</a></li>
 </ul>
-<h2>Text</h2>
+</div>
+<div class="box">
 <ul>
+    <h2>Text</h2>
     <li><a href="Text/Blur2EM.html">Blur2EM</a></li>
     <li><a href="Text/hoverTextBlend.html">hoverTextBlend</a></li>
 </ul>
+</div>
+
+
+
 </body>
+
+<style>
+    body{
+        margin:0;
+        padding:0 20px;
+        box-sizing:border-box;
+        background-image:linear-gradient(to bottom,
+
+        rgba(255,0,0,.2),
+        rgba(255,125,0,.2),
+        rgba(255,255,0,.2),
+        rgba(125,255,0,.2),
+        rgba(0,255,125,.2),
+        rgba(0,255,255,.2),
+        rgba(0,125,255,.2),
+        rgba(125,0,255,.2),
+        rgba(255,0,255,.2),
+        rgba(255,0,125,.2));
+        min-height:100vh;
+        width:100vw;
+        overflow-x: hidden;
+
+    }
+    h1{ color:rgb(255,0,255);text-shadow: 1px 1px rgb(255,0,125),2px 2px rgb(125,0,125);}
+    h2{color:rgb(0,0,255);text-shadow: 1px 1px rgb(0,125,255),1.5px 1.5px rgb(0,125,125);}
+    ul{list-style:none;display:flex;flex-direction: column;align-items:center;}
+    ul li{display:inline-block; font-size:18px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+    ul li a{text-decoration:none; }
+    .box{
+        margin: 0 auto 10px;
+        max-width:1200px;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        background:rgba(0, 183, 255,0.5);
+        box-shadow: 2px 2px 5px rgba(3, 52, 156,.6),
+        -2px -2px 5px rgba(71, 81, 172,.5),
+        inset -1px -1px 2px rgb(26, 134, 161),
+        inset  -2px 2px 8px rgb(157, 218, 253);
+        border-radius:15px;
+        
+    }
+
+</style>
 </html>
